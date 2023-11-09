@@ -4,12 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
@@ -31,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Initialize UI components
-        fab = findViewById(R.id.fab);
+        fab = findViewById(R.id.view_database);
         imageView = findViewById(R.id.imageView);
         listView = findViewById(R.id.location_view);
         noLocations = findViewById(R.id.noLocations);
