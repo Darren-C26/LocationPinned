@@ -146,17 +146,20 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                     double longitude = Double.parseDouble(longitudeStr);
 
                     String address = "";
+                    // Create a Geocoder instance with the given context and locale
                     Geocoder geocoder = new Geocoder(context, Locale.getDefault());
-                    try {
-                        List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
-                        if (addresses != null && !addresses.isEmpty()) {
-                            Address returnedAddress = addresses.get(0);
-                            StringBuilder strToReturn = new StringBuilder("");
 
-                            for (int i = 0; i <= returnedAddress.getMaxAddressLineIndex(); i++) {
-                                strToReturn.append(returnedAddress.getAddressLine(i)).append("\n");
+                    try {
+                        List<Address> locationAddresses = geocoder.getFromLocation(latitude, longitude, 1);
+                        if (locationAddresses != null && !locationAddresses.isEmpty()) {
+                            Address primaryAddress = locationAddresses.get(0);
+                            StringBuilder fullAddress = new StringBuilder();
+
+                            // Concatenate address lines to form the full address
+                            for (int lineIndex = 0; lineIndex <= primaryAddress.getMaxAddressLineIndex(); lineIndex++) {
+                                fullAddress.append(primaryAddress.getAddressLine(lineIndex)).append("\n");
                             }
-                            address = strToReturn.toString();
+                            address = fullAddress.toString();
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
