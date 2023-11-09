@@ -109,20 +109,21 @@ public class EditPopupDialog extends Dialog {
         Geocoder geocoder = new Geocoder(context, Locale.getDefault());
 
         try {
-            List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
+            List<Address> locationAddresses = geocoder.getFromLocation(latitude, longitude, 1);
 
-            if (addresses != null) {
-                Address returnedAddress = addresses.get(0);
-                StringBuilder strToReturn = new StringBuilder("");
+            if (locationAddresses != null && !locationAddresses.isEmpty()) {
+                Address primaryAddress = locationAddresses.get(0);
+                StringBuilder fullAddress = new StringBuilder();
 
-                // Concatenate the address lines to form the full address
-                for (int i = 0; i <= returnedAddress.getMaxAddressLineIndex(); i++) {
-                    strToReturn.append(returnedAddress.getAddressLine(i)).append("\n");
+                // Concatenate address lines to form the full address
+                for (int lineIndex = 0; lineIndex <= primaryAddress.getMaxAddressLineIndex(); lineIndex++) {
+                    fullAddress.append(primaryAddress.getAddressLine(lineIndex)).append("\n");
                 }
-                address = strToReturn.toString();
+
+                address = fullAddress.toString();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
 
         return address;
