@@ -1,0 +1,68 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants">
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@android:drawable/ic_menu_delete"
+        android:text="Delete"
+        android:textColor="#00FFFFFF"
+        android:textColorHighlight="#008F559F"
+        android:textSize="1sp"
+        app:backgroundTint="#0E2432"
+        app:layout_constraintBottom_toBottomOf="@+id/descriptionTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titleTextView" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="50dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/pin_icon"
+        app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+        app:layout_constraintStart_toEndOf="@+id/pin_icon"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+    <ImageView
+        android:id="@+id/padding"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:background="#FEFAFD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionTextView" />
+
+    <ImageView
+        android:id="@+id/pin_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        app:srcCompat="@android:drawable/ic_menu_myplaces"
+        app:tint="#083DFD" />
+
+    <!-- Add the Delete Button -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

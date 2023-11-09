@@ -1,0 +1,66 @@
+<!-- popup_layout.xml -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#E8F6FF">
+
+    <TextView
+        android:id="@+id/popupTitle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Add Location"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/cancelButtonPopup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editLatPopup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Latitude (Ex. 43.94595)"
+        android:inputType="numberDecimal|numberSigned"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cancelButtonPopup" />
+
+    <EditText
+        android:id="@+id/editLongPopup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Longitude (Ex. -78.89680)"
+        android:inputType="numberDecimal|numberSigned"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editLatPopup" />
+
+    <Button
+        android:id="@+id/saveButtonPopup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#60CD80"
+        android:text="Save"
+        android:textStyle="bold"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editLongPopup" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/cancelButtonPopup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:text="Cancel"
+        app:backgroundTint="#E7F5FE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
