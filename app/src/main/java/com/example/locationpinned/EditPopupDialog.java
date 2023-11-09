@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class EditPopupDialog extends Dialog {
-    
+
     // Declare UI components
     TextView popupTitle;
     EditText editLatPopup;
