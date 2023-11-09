@@ -58,8 +58,8 @@ public class LocationAdapter extends BaseAdapter {
         }
 
         // Find and set references to UI elements
-        TextView titleTextView = view.findViewById(R.id.titleTextView);
-        TextView descriptionTextView = view.findViewById(R.id.descriptionTextView);
+        TextView titleTextView = view.findViewById(R.id.addressTextView);
+        TextView descriptionTextView = view.findViewById(R.id.coordinatesTextView);
 
         // Get the location model for the current position
         LocationModel location = locations.get(position);
