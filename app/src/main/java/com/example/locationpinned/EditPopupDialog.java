@@ -15,18 +15,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class EditPopupDialog extends Dialog {
-    // Interface for handling saved data instance
-    public interface OnDataSavedListener {
-        void onDataSaved();
-    }
-
-    // Add a field for the listener
-    private OnDataSavedListener onDataSavedListener;
-
-    public void setOnDataSavedListener(OnDataSavedListener listener) {
-        this.onDataSavedListener = listener;
-    }
-
+    
     // Declare UI components
     TextView popupTitle;
     EditText editLatPopup;
@@ -90,10 +79,6 @@ public class EditPopupDialog extends Dialog {
                             // Print appropriate message based on result
                             if (success) {
                                 Toast.makeText(context, "Location saved successfully.", Toast.LENGTH_SHORT).show();
-                                // Notify listener if data has been saved - this will be used to update the layout with the edited note
-                                if (onDataSavedListener != null) {
-                                    onDataSavedListener.onDataSaved();
-                                }
                                 dismiss(); // Close the dialog
                             } else {
                                 Toast.makeText(context, "Location could not be saved.", Toast.LENGTH_SHORT).show();
