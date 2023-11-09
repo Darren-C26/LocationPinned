@@ -37,6 +37,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     public void onCreate(SQLiteDatabase db) {
+        // Create the SQLite table to store location data
         db.execSQL(
                 "CREATE TABLE " + LOCATION_TABLE + " (" +
                         COLUMN_LOCATION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -47,6 +48,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
+    // Checks if any locations exist in the database
     private boolean locationsExistInDatabase() {
         SQLiteDatabase db = this.getReadableDatabase();
         String queryString = "SELECT * FROM " + LOCATION_TABLE;
@@ -66,6 +68,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         // Handle database upgrades if needed
     }
 
+    // Add a new location to the database
     public boolean addLocation(LocationModel locationModel) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -77,6 +80,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return insert != -1;
     }
 
+    //Retrieve a list of locations from the database
     public List<LocationModel> getLocations() {
         List<LocationModel> locationsList = new ArrayList<>();
         String queryString = "SELECT * FROM " + LOCATION_TABLE;
@@ -100,6 +104,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return locationsList;
     }
 
+    // Delete a location from the database
     public boolean deleteLocation(int locationID) {
         SQLiteDatabase db = this.getWritableDatabase();
         String whereClause = COLUMN_LOCATION_ID + " = ?";
@@ -109,6 +114,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return deletedRows > 0;
     }
 
+    // Update an existing location in the database
     public boolean updateLocation(int locationID, LocationModel updatedLocation) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -122,6 +128,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return updatedRows > 0;
     }
 
+    // Read locations from a text file and add them to the database
     public void addLocationsFromFile(Context context) {
         try {
             // Open the file from the assets directory
@@ -154,7 +161,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                         e.printStackTrace();
                     }
 
-                    // Create a LocationModel object and add it to the database.
+                    // Create a LocationModel object and add it to the database
                     LocationModel locationModel = new LocationModel(-1, address, latitude, longitude);
                     addLocation(locationModel);
                 }
