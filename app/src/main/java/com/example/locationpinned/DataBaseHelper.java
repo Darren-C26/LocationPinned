@@ -20,6 +20,7 @@ import java.util.Locale;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
     private Context context;
+    // Initialize constants for database attribute names
     public static final String DATABASE_NAME = "locations.db";
     public static final String LOCATION_TABLE = "location";
     public static final String COLUMN_LOCATION_ID = "location_id";
