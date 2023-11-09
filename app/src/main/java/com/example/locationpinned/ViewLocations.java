@@ -10,7 +10,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 public class ViewLocations extends AppCompatActivity implements NewPopupDialog.OnDataSavedListener {
-    // UI elements
+    // Declare UI components
     Toolbar toolbar;
     ListView listView;
     List<LocationModel> locationsList;
@@ -22,7 +22,7 @@ public class ViewLocations extends AppCompatActivity implements NewPopupDialog.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_locations);
 
-        // Initialize UI elements
+        // Initialize UI components
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Locations Database");
 
